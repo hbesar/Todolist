@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/frontend/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hi Heri, Good Morning</h1>
+      <p>Let's Check Your Task</p>
+
+      <div class="task-header">
+        <div class="wrapper">
+          <h3>Today Task</h3>
+          <p id="dateTime"></p>
+        </div>
+        <button id="newTaskBtn">+ New Task</button>
+      </div>
+      <div class="task-target">
+        <p class="chek">Checklist for done task</p>
+        <button id="completed" class="completed">Completed</button>
+      </div>
+      <div id="taskList" class="task-list"></div>
+    </div>
+
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <input type="text" id="taskTitle" placeholder="Title" />
+        <input type="text" id="taskDesc" placeholder="Description" />
+        <div>
+          <div class="desc"></div>
+          <div class="chose">
+            <div>
+              <p>Start</p>
+              <input type="date" id="taskStart" />
+            </div>
+            <div>
+              <p>Priority</p>
+              <select id="option" name="option">
+                <option value="">Level</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            <div>
+              <p class="end">End</p>
+              <input type="date" id="taskEnd" />
+            </div>
+          </div>
+        </div>
+        <button id="saveTask">Save</button>
+        <button id="closeModal">Cancel</button>
+      </div>
+    </div>
+
+    <div id="doneModal" class="modal-done">
+      <div class="done-content">
+        <div class="task-line">
+          <p>Task Complete</p>
+          <input type="date" />
+        </div>
+
+        <div id="containerDone" class="container-done">
+          <div class="script">
+            <div class="task-content">
+              <div id="title" class="title"></div>
+              <div id="description" class="description"></div>
+            </div>
+
+            <div>
+              <img src="/frontend/assets/icon/Vector.png" alt="check" />
+            </div>
+          </div>
+          <hr class="solid" />
+          <div id="dated" class="dated"></div>
+        </div>
+
+        <button id="backModal">Back</button>
+      </div>
+    </div>
+
+    <script src="/frontend/javascript/script.js"></script>
+  </body>
+</html>

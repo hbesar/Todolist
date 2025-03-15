@@ -1,0 +1,330 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Outfit", serif;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 200;
+}
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f4f6f6;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.container p {
+  font-weight: 100;
+  font-size: 1.1rem;
+}
+.wrapper {
+  margin-right: 2rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+#dateTime {
+  font-size: 1rem;
+  font-weight: 200;
+}
+.task-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+.task-header button {
+  width: 25%;
+  padding: 0.8rem 0;
+  font-family: "Outfit", serif;
+  font-size: 14px;
+  font-weight: 500;
+  background: #e0e7ff;
+  border: none;
+
+  border-radius: 5px;
+  cursor: pointer;
+}
+.task-header button:hover {
+  background: #4d6894;
+  color: #ffffff;
+}
+
+.task-target {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.completed {
+  cursor: pointer;
+  padding: 3px 20px;
+  border-radius: 10px;
+  font-family: "Outfit", serif;
+  font-weight: 400;
+  background-color: rgba(231, 227, 252, 0.68);
+}
+
+.completed:hover {
+  background-color: rgba(197, 188, 247, 0.68);
+  color: #585656;
+}
+.chose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chose p {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+#option {
+  margin: 0 5px;
+  padding: 10px;
+  font-family: "Outfit", serif;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.task-list {
+  margin-top: 20px;
+}
+.task {
+  background: white;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.due {
+  display: flex;
+}
+.due p {
+  font-size: 12px;
+}
+
+#tab .level {
+  margin-left: 1.5rem;
+}
+
+.task-list .task .level {
+  font-weight: 300;
+}
+.task-list .task .status .start {
+  font-weight: 300;
+  color: #3ecf4c;
+}
+strong {
+  font-size: 1rem;
+}
+.level span {
+  color: #0980e2;
+}
+
+.task-list .task .descript {
+  font-size: 1rem;
+  margin: 2px 0 5px;
+}
+
+#myCheck {
+  margin-right: 10px;
+}
+.first {
+  display: flex;
+}
+.task button {
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.actions p {
+  color: #f64920;
+  font-weight: 300;
+  font-size: 12px;
+}
+.edit {
+  margin-left: 30%;
+}
+
+.expired {
+  font-weight: 200;
+  color: #000000;
+}
+.task button img {
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal-content input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: "Outfit", serif;
+}
+
+.desc {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3%;
+  font-weight: 300;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.modal-content button {
+  background: #e0e7ff;
+  color: #000;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Outfit", serif;
+}
+.modal-content button:hover {
+  background: #94a8e7;
+}
+
+/* Menu Completed Start */
+
+.modal-done {
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+.done-content {
+  background: #f4f6f6;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.done-content button {
+  background: #e0e7ff;
+  color: #000;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-family: "Outfit", serif;
+}
+.task-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.done-content button:hover {
+  background: #94a8e7;
+}
+
+.container-done {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 20rem;
+}
+.script {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.solid {
+  margin: 10px 0;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.dated {
+  font-size: 12px;
+  font-weight: 100;
+}
+
+/* Menu Completed Done */
+@media screen and (max-width: 568px) {
+  .chose {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #option {
+    margin: 0;
+  }
+
+  .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .task-list .task .descript {
+    font-size: 14px;
+    margin: 10px 0 5px;
+  }
+  .due {
+    display: block;
+  }
+  .due p {
+    font-size: 10px;
+  }
+
+  #tab .level {
+    margin: 0;
+  }
+
+  .actions p {
+    font-size: 10px;
+  }
+}
