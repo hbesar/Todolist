@@ -120,14 +120,14 @@ h3 {
   font-size: 12px;
 }
 
-#tab .level {
+.tab .level {
   margin-left: 1.5rem;
 }
 
 .task-list .task .level {
   font-weight: 300;
 }
-.task-list .task .status .start {
+.task-list .task .status  {
   font-weight: 300;
   color: #3ecf4c;
 }
@@ -143,18 +143,15 @@ strong {
   margin: 2px 0 5px;
 }
 
-#myCheck {
-  margin-right: 10px;
+.first input {
+  margin-right: 15px;
 }
 .first {
   display: flex;
 }
-.task button {
-  margin-top: 10px;
-  border-radius: 10px;
-}
+ 
 .actions p {
-  color: #f64920;
+  color: #000;
   font-weight: 300;
   font-size: 12px;
 }
@@ -164,15 +161,10 @@ strong {
 
 .expired {
   font-weight: 200;
-  color: #000000;
+  color: #f64920;
 }
-.task button img {
-  padding: 5px;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: #fff;
-}
+
+
 .modal {
   display: flex;
   justify-content: center;
@@ -219,11 +211,60 @@ strong {
 }
 .modal-content button:hover {
   background: #94a8e7;
+  
+}
+.double {
+  display: flex;
+  margin-right: 1.5rem;
+  margin-top: 10px;
+  
 }
 
+.double button img {
+  padding: 5px;
+  margin: 0 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #eaeefe;
+}
+.double button{
+  
+  background-color: #ffffff;
+}
+
+
+.btnDone {
+  cursor: pointer;
+  display: flex;
+  padding: 3px 0.8rem;
+  margin-left: 1.5rem;
+  border-radius: 10px;
+  background-color: #eaeefe;
+}
+
+/* .centang strong p {
+  text-decoration: line-through;
+} */
+
+/* #tab{
+  text-decoration: line-through;
+} */
 /* Menu Completed Start */
 
-.modal-done {
+.doneModal {
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+#noneModal {
   /* display: flex; */
   display: none;
   justify-content: center;
@@ -320,7 +361,7 @@ strong {
     font-size: 10px;
   }
 
-  #tab .level {
+  .tab .level {
     margin: 0;
   }
 

@@ -12,12 +12,63 @@ document.getElementById("closeModal").addEventListener("click", function () {
   document.getElementById("taskModal").style.display = "none";
 });
 
+document.querySelector(".backModal").addEventListener("click", function () {
+  document.getElementById("noneModal").style.display = "none";
+});
 document.getElementById("backModal").addEventListener("click", function () {
-  document.getElementById("doneModal").style.display = "none";
+  document.querySelector(".doneModal").style.display = "none";
 });
-document.getElementById("completed").addEventListener("click", function () {
-  document.getElementById("doneModal").style.display = "flex";
+const list = document.querySelector('.task-list');
+
+list.addEventListener('click', function(e){
+    if(e.target.type === 'checkbox'){
+        const task = e.target.closest('.task');
+        const act = task.querySelector(".actions");
+        const btnList = act.querySelector('p');
+        const teksDone = document.createElement('button');
+        teksDone.classList.add('btnDone');
+        const btnDone = document.createTextNode('Done');
+        teksDone.appendChild(btnDone);
+        console.log(teksDone);
+
+        if (e.target.checked) {
+            e.target.nextElementSibling.style.textDecoration = "line-through";
+            act.replaceChild(teksDone, btnList);
+        } else {
+            e.target.nextElementSibling.style.textDecoration = "none";
+            act.replaceChild(teksDone, btnList);
+        }
+    }
 });
+
+
+
+// list.addEventListener('click', function(e){
+
+
+// if(e.target.checked){
+//   let act = document.querySelector(".actions");
+//   let btnList = list.getElementsByTagName('p')[3];
+//   let teksDone = document.createElement('button');
+//   teksDone.classList.add('btnDone')
+//   let btnDone = document.createTextNode('Done');
+//   teksDone.appendChild(btnDone);
+// console.log(teksDone);
+
+
+//   e.target.nextElementSibling.style.textDecoration = "line-through";
+//   act.replaceChild(teksDone, btnList)
+// } else {
+//   e.target.nextElementSibling.style.textDecoration = "none";
+//   act.replaceChild(teksDone, btnList);
+// }
+// });
+
+
+
+
+
+
 
 document.getElementById("saveTask").addEventListener("click", function () {
   const title = document.getElementById("taskTitle").value;
@@ -38,17 +89,19 @@ document.getElementById("saveTask").addEventListener("click", function () {
     );
     const dateEnd = new Intl.DateTimeFormat("en-US", options).format(endDate);
     let status =
-      today >= endDate
-        ? '<span class="expired">Time Is Up</span>'
-        : `<span class="start">Start ${dateStart}</span>`;
+      today.getTime() > endDate.getTime()
+     ? '<span class="expired">Time Is Up</span>'
+     : `<span class="start">${dateEnd}</span>`;
 
-    task.innerHTML = `<div class='first'><input type="checkbox" id="myCheck">
-    <div id="tab"><strong>${title}</strong><p class= "descript">${desc}</p>
-    <div class= 'due'><p class= "status">${status}</p><p class= "level">Priority : <span>${level}</span></p></div></div></div>
+    task.innerHTML = `<div class='first'><input type="checkbox" class= "check">
+    <div class= "tab"><strong>${title}</strong><p class= "descript">${desc}</p>
+    <div class= 'due'><p class= "status">${dateStart}</p><p class= "level">Priority : <span>${level}</span></p></div></div></div>
                         <div class="actions">
-                        <p>Ex Date : ${dateEnd}</p>
+                        <p>Ex Date : ${status}</p>
+                        <div class= 'double'>
                         <button class= "edit" onclick='editTask(this)'><img src="./frontend/assets/icon/edit.png" alt="edit"></button>
                         <button onclick='deleteTask(this)'><img src="./frontend/assets/icon/delete.png" alt="delete"></button>
+                        </div>
                         </div>`;
     taskList.appendChild(task);
   }
@@ -71,6 +124,6 @@ function editTask(btn) {
 
   task.remove();
 }
-document.getElementById("completed").addEventListener("click", function () {
-  document.getElementById("taskDone").style.display = "flex";
-});
+
+
+

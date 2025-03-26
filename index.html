@@ -64,18 +64,20 @@
       </div>
     </div>
 
-    <div id="doneModal" class="modal-done">
+
+<!-- task done -->
+    <div class= "doneModal ">
       <div class="done-content">
         <div class="task-line">
           <p>Task Complete</p>
           <input type="date" />
         </div>
 
-        <div id="containerDone" class="container-done">
+        <div id = "containerDone" class="container-done">
           <div class="script">
             <div class="task-content">
-              <div id="title" class="title"></div>
-              <div id="description" class="description"></div>
+              <div class="title"></div>
+              <div class="description"></div>
             </div>
 
             <div>
@@ -83,13 +85,41 @@
             </div>
           </div>
           <hr class="solid" />
-          <div id="dated" class="dated"></div>
+          <div class="dated"></div>
         </div>
 
         <button id="backModal">Back</button>
       </div>
     </div>
+<!-- task done end -->
 
+
+<!-- no task -->
+    <div id="noneModal">
+      <div class="done-content">
+        
+    
+        <div id="containerDone" class="container-done">
+          <div class="script">
+            <div class="task-content">
+              <div id="title" class="title"></div>
+              <div id="description" class="description">No Task Done</div>
+            </div>
+    
+            
+          </div>
+          
+          <div id="dated" class="dated"></div>
+        </div>
+    
+        <button class = "backModal" id="back">Back</button>
+      </div>
+    </div>
+<!-- no task end -->
     <script src="/frontend/javascript/script.js"></script>
   </body>
 </html>
+
+
+
+
