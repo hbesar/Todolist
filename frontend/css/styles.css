@@ -254,11 +254,10 @@ strong {
 /* Menu Completed Start */
 
 #doneMdl {
-  /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -268,7 +267,6 @@ strong {
 
 
 #noneModal {
-  /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
@@ -321,12 +319,18 @@ strong {
   border-radius: 10px;
   padding: 20px;
   width: 20rem;
+  border: 1px solid rgba(29, 29, 29, 0.2);
 }
 
 .script {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+#description {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
 }
 .solid {
   margin: 10px 0;
@@ -344,6 +348,8 @@ strong {
   font-size: 12px;
   font-weight: 100;
 }
+
+
 
 /* Menu Completed Done */
 @media screen and (max-width: 568px) {
@@ -382,4 +388,11 @@ strong {
   .actions p {
     font-size: 10px;
   }
+
+  .wrap {
+  margin: 10px 0;
+  padding: 10px ;
+  width: 17rem;
+  
+}
 }
