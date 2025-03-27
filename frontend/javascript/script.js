@@ -60,7 +60,6 @@ saveTask.addEventListener("click", function () {
                         </div>`;
     taskList.appendChild(task);
   }
-
   taskModal.style.display = "none";
 });
 
@@ -72,9 +71,11 @@ list.addEventListener('click', function(e){
         const task = e.target.closest('.task');
         const act = task.querySelector(".actions");
         const btnList = act.querySelector('p');
+
         const teksDone = document.createElement('div');
         teksDone.classList.add('btnDone');
         const btnDone = document.createTextNode('Done');
+
         teksDone.appendChild(btnDone);
         
 
@@ -89,10 +90,10 @@ list.addEventListener('click', function(e){
 });
 
 
-
 const complete = document.getElementById('completed');
 const doneModal = document.getElementById('doneMdl');
 const noneModal = document.getElementById('noneModal');
+
 const listDone = document.querySelector('completed');
 const bkModal = document.querySelector ('.bkModal');
 const backModal = document.querySelector('.backModal');
@@ -124,7 +125,6 @@ complete.classList.add('completed');
   const desc = task.querySelector("p").innerText;
 
 
-
   taskDone.innerHTML =`<div class="script"><div class="task-content">
   <div class="title">${title}</div>
   <div class="description">${desc}</div>
@@ -140,6 +140,7 @@ el.target.parentElement.parentElement.remove();
 
 });
 
+
 backModal.addEventListener('click', function (){
   noneModal.style.display = 'none';
   
@@ -148,8 +149,6 @@ backModal.addEventListener('click', function (){
 bkModal.addEventListener('click', function (){
   doneModal.style.display = 'none';
 });
-
-
 
 
 function deleteTask(btn) {
