@@ -1,3 +1,24 @@
+function updateGreeting() {
+            const greetingElement = document.getElementById("greeting");
+            const hours = new Date().getHours();
+            let greetingText = "Hi There, ";
+
+            if (hours >= 5 && hours < 12) {
+                greetingText += "Good Morning";
+            } else if (hours >= 12 && hours < 18) {
+                greetingText += "Good Afternoon";
+            } else if (hours >= 18 && hours < 22) {
+                greetingText += "Good Evening";
+            } else {
+                greetingText += "Good Night";
+            }
+
+            greetingElement.textContent = greetingText;
+        }
+
+        updateGreeting();
+
+
 const today = new Date();
 const options = { weekday: "long", month: "short", day: "2-digit" };
 const formattedDate = new Intl.DateTimeFormat("en-US", options).format(today);
@@ -27,10 +48,13 @@ saveTask.addEventListener("click", function () {
   const start = document.getElementById("taskStart").value;
   const end = document.getElementById("taskEnd").value;
 
-
+  if (!title || !desc || !level ) {
+        return alert("Please fill in all fields correctly!");
+    }
   if (start > end || end < start ) {
-    alert('please fill the date correctly');
-  } else if (title && desc && start && level && end ) {
+        return alert('Please ensure the start date is before the end date.');
+  } 
+  else if (title && desc && start && level && end ) {
     const taskList = document.getElementById("taskList");
     const task = document.createElement("div");
     task.classList.add("task");
