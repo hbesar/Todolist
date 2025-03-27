@@ -181,6 +181,7 @@ strong {
 .modal-content {
   background: white;
   padding: 20px;
+  width: auto;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -193,14 +194,7 @@ strong {
   font-family: "Outfit", serif;
 }
 
-.desc {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 3%;
-  font-weight: 300;
-  margin-bottom: 5px;
-  font-size: 14px;
-}
+
 .modal-content button {
   background: #e0e7ff;
   color: #000;
@@ -360,6 +354,10 @@ strong {
     flex-direction: column;
     gap: 10px;
   }
+.modal-content {
+  padding: 15px;
+  width: 18rem;
+}
   #option {
     margin: 0;
   }
@@ -392,7 +390,7 @@ strong {
   .wrap {
   margin: 10px 0;
   padding: 10px ;
-  width: 17rem;
+  width: 18rem;
   
 }
 }

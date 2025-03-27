@@ -29,7 +29,7 @@ saveTask.addEventListener("click", function () {
 
 
   if (start > end || end < start ) {
-    alert('please fill the date corectly');
+    alert('please fill the date correctly');
   } else if (title && desc && start && level && end ) {
     const taskList = document.getElementById("taskList");
     const task = document.createElement("div");
