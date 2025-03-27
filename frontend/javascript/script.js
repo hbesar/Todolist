@@ -1,83 +1,36 @@
 const today = new Date();
 const options = { weekday: "long", month: "short", day: "2-digit" };
 const formattedDate = new Intl.DateTimeFormat("en-US", options).format(today);
+const dateTime = document.getElementById("dateTime");
 
-document.getElementById("dateTime").innerHTML = formattedDate;
+dateTime.innerHTML = formattedDate;
 
-document.getElementById("newTaskBtn").addEventListener("click", function () {
-  document.getElementById("taskModal").style.display = "flex";
+const newTask = document.getElementById("newTaskBtn");
+const taskModal = document.getElementById("taskModal");
+const closModal = document.getElementById("closeModal");
+
+newTask.addEventListener("click", function () {
+  taskModal.style.display = "flex";
 });
 
-document.getElementById("closeModal").addEventListener("click", function () {
-  document.getElementById("taskModal").style.display = "none";
-});
-
-document.querySelector(".backModal").addEventListener("click", function () {
-  document.getElementById("noneModal").style.display = "none";
-});
-document.getElementById("backModal").addEventListener("click", function () {
-  document.querySelector(".doneModal").style.display = "none";
-});
-const list = document.querySelector('.task-list');
-
-list.addEventListener('click', function(e){
-    if(e.target.type === 'checkbox'){
-        const task = e.target.closest('.task');
-        const act = task.querySelector(".actions");
-        const btnList = act.querySelector('p');
-        const teksDone = document.createElement('button');
-        teksDone.classList.add('btnDone');
-        const btnDone = document.createTextNode('Done');
-        teksDone.appendChild(btnDone);
-        console.log(teksDone);
-
-        if (e.target.checked) {
-            e.target.nextElementSibling.style.textDecoration = "line-through";
-            act.replaceChild(teksDone, btnList);
-        } else {
-            e.target.nextElementSibling.style.textDecoration = "none";
-            act.replaceChild(teksDone, btnList);
-        }
-    }
+closModal.addEventListener("click", function () {
+  taskModal.style.display = "none";
 });
 
 
+const saveTask = document.getElementById("saveTask");
 
-// list.addEventListener('click', function(e){
-
-
-// if(e.target.checked){
-//   let act = document.querySelector(".actions");
-//   let btnList = list.getElementsByTagName('p')[3];
-//   let teksDone = document.createElement('button');
-//   teksDone.classList.add('btnDone')
-//   let btnDone = document.createTextNode('Done');
-//   teksDone.appendChild(btnDone);
-// console.log(teksDone);
-
-
-//   e.target.nextElementSibling.style.textDecoration = "line-through";
-//   act.replaceChild(teksDone, btnList)
-// } else {
-//   e.target.nextElementSibling.style.textDecoration = "none";
-//   act.replaceChild(teksDone, btnList);
-// }
-// });
-
-
-
-
-
-
-
-document.getElementById("saveTask").addEventListener("click", function () {
+saveTask.addEventListener("click", function () {
   const title = document.getElementById("taskTitle").value;
   const desc = document.getElementById("taskDesc").value;
   const level = document.getElementById("option").value;
   const start = document.getElementById("taskStart").value;
   const end = document.getElementById("taskEnd").value;
 
-  if (title && desc && start && level && end) {
+
+  if (start > end || end < start ) {
+    alert('please fill the date corectly');
+  } else if (title && desc && start && level && end ) {
     const taskList = document.getElementById("taskList");
     const task = document.createElement("div");
     task.classList.add("task");
@@ -87,9 +40,11 @@ document.getElementById("saveTask").addEventListener("click", function () {
     const dateStart = new Intl.DateTimeFormat("en-US", options).format(
       startDate
     );
+
     const dateEnd = new Intl.DateTimeFormat("en-US", options).format(endDate);
+
     let status =
-      today.getTime() > endDate.getTime()
+      today.getTime() > endDate.getTime() 
      ? '<span class="expired">Time Is Up</span>'
      : `<span class="start">${dateEnd}</span>`;
 
@@ -106,15 +61,105 @@ document.getElementById("saveTask").addEventListener("click", function () {
     taskList.appendChild(task);
   }
 
-  document.getElementById("taskModal").style.display = "none";
+  taskModal.style.display = "none";
 });
 
-function deleteTask(btn) {
-  btn.parentElement.parentElement.remove();
+
+const list = document.querySelector('.task-list');
+
+list.addEventListener('click', function(e){
+    if(e.target.type === 'checkbox'){
+        const task = e.target.closest('.task');
+        const act = task.querySelector(".actions");
+        const btnList = act.querySelector('p');
+        const teksDone = document.createElement('div');
+        teksDone.classList.add('btnDone');
+        const btnDone = document.createTextNode('Done');
+        teksDone.appendChild(btnDone);
+        
+
+        if (e.target.checked) {
+            e.target.nextElementSibling.style.textDecoration = "line-through";
+            act.replaceChild(teksDone, btnList);
+        } else {
+            e.target.nextElementSibling.style.textDecoration = "none";
+            act.replaceChild(teksDone, btnList);
+        } 
+    }
+});
+
+
+
+const complete = document.getElementById('completed');
+const doneModal = document.getElementById('doneMdl');
+const noneModal = document.getElementById('noneModal');
+const listDone = document.querySelector('completed');
+const bkModal = document.querySelector ('.bkModal');
+const backModal = document.querySelector('.backModal');
+
+complete.addEventListener('click', function(){
+  if(complete.className == 'completed') {
+    doneModal.style.display = 'flex';
+  } else {
+  noneModal.style.display = 'flex';
+  }
+});
+
+list.addEventListener('click', function(el) {
+
+if (el.target.className == "btnDone") {
+complete.classList.add('completed');
+
+
+  const currentTime = new Date();
+  const options = { weekday: "long", month: "short", day: "2-digit", hour: "2-digit", minute: "2-digit"  };
+  const formattedTime = currentTime.toLocaleString('en-US', options);
+
+  const doneList = document.getElementById('containerDone');
+  const taskDone = document.createElement('div');
+  taskDone.classList.add('wrap');
+
+  const task = el.target.closest('.task');
+  const title = task.querySelector("strong").innerText;
+  const desc = task.querySelector("p").innerText;
+
+
+
+  taskDone.innerHTML =`<div class="script"><div class="task-content">
+  <div class="title">${title}</div>
+  <div class="description">${desc}</div>
+  </div>
+  <div><img src="./frontend/assets/icon/Vector.png" alt="check" />
+  </div>
+  </div>
+  <hr class="solid" />
+  <div class="dated">${formattedTime}</div>`
+doneList.appendChild(taskDone);
+el.target.parentElement.parentElement.remove();
 }
 
+});
+
+backModal.addEventListener('click', function (){
+  noneModal.style.display = 'none';
+  
+});
+
+bkModal.addEventListener('click', function (){
+  doneModal.style.display = 'none';
+});
+
+
+
+
+function deleteTask(btn) {
+    if (confirm("Are you sure delete this task?")) {
+        btn.parentElement.parentElement.parentElement.remove();
+    }
+};
+
 function editTask(btn) {
-  const task = btn.parentElement.parentElement;
+  const task = btn.parentElement.parentElement.parentElement;
   const title = task.querySelector("strong").innerText;
   const desc = task.querySelector("p").innerText;
 

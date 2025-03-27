@@ -67,7 +67,7 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
-.completed {
+#completed {
   cursor: pointer;
   padding: 3px 20px;
   border-radius: 10px;
@@ -76,9 +76,9 @@ h3 {
   background-color: rgba(231, 227, 252, 0.68);
 }
 
-.completed:hover {
+#completed:hover {
   background-color: rgba(197, 188, 247, 0.68);
-  color: #585656;
+  color: #fff;
 }
 .chose {
   display: flex;
@@ -102,6 +102,7 @@ h3 {
 .task-list {
   margin-top: 20px;
 }
+
 .task {
   background: white;
   padding: 15px;
@@ -221,6 +222,7 @@ strong {
 }
 
 .double button img {
+  cursor: pointer;
   padding: 5px;
   margin: 0 1px;
   width: 20px;
@@ -243,16 +245,15 @@ strong {
   background-color: #eaeefe;
 }
 
-/* .centang strong p {
-  text-decoration: line-through;
-} */
+.btnDone:hover {
+  color: #fff;
+  background-color: #7d95f3;
+}
 
-/* #tab{
-  text-decoration: line-through;
-} */
+
 /* Menu Completed Start */
 
-.doneModal {
+#doneMdl {
   /* display: flex; */
   display: none;
   justify-content: center;
@@ -264,6 +265,8 @@ strong {
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
 }
+
+
 #noneModal {
   /* display: flex; */
   display: none;
@@ -303,12 +306,23 @@ strong {
   background: #94a8e7;
 }
 
+.wrap {
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 20px;
+  width: 20rem;
+  border: 1px solid rgba(29, 29, 29, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .container-done {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
   width: 20rem;
 }
+
 .script {
   display: flex;
   justify-content: space-between;
