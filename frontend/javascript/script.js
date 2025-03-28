@@ -135,7 +135,7 @@
   const backModal = document.querySelector('.backModal');
 
   complete.addEventListener('click', function(){
-    if(complete.className == 'completed') {
+    if(doneModal.className == 'completed') {
       doneModal.style.display = 'flex';
     } else {
     noneModal.style.display = 'flex';
@@ -145,7 +145,7 @@
   list.addEventListener('click', function(el) {
 
   if (el.target.className == "btnDone") {
-  complete.classList.add('completed');
+  doneMdl.classList.add('completed');
 
 
     const currentTime = new Date();
@@ -169,7 +169,9 @@
     </div>
     </div>
     <hr class="solid" />
-    <div class="dated">${formattedTime}</div>`
+    <div class="dated">${formattedTime}
+    <button class= "listDel "onclick='deleteList(this)'><img src="./frontend/assets/icon/delete.png" alt="delete"></button>
+    </div>`
   doneList.appendChild(taskDone);
   el.target.parentElement.parentElement.remove();
   }
@@ -193,6 +195,25 @@
       }
   };
 
+  function deleteList(btn) {
+    const del = btn.parentElement.parentElement;
+    const doneList = document.getElementById("containerDone");
+
+    if (confirm("Are you sure delete this task?")) {
+        del.remove();
+    }
+
+    
+    if (doneList.children.length === 0) {
+        doneModal.style.display = "none"; 
+        noneModal.style.display = "flex"; 
+        doneModal.classList.remove("completed");
+    }
+
+    
+};
+
+
   function editTask(btn) {
     const task = btn.parentElement.parentElement.parentElement;
     const title = task.querySelector("strong").innerText;
@@ -204,6 +225,6 @@
 
     task.remove();
   }
-
+  
 
 

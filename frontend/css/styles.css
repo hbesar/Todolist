@@ -355,8 +355,25 @@
   }
 
   .dated {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 12px;
     font-weight: 100;
+  }
+
+  .listDel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  .listDel img{
+   width: 20px;
+   height: 20px;
   }
 
 
